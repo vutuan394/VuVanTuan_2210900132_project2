@@ -1,0 +1,122 @@
+﻿    <!DOCTYPE html>
+    <html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Web Đọc Truyện Online</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/Style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="bg-dark text-white p-3 text-center">
+            <h1 class="mb-0">Web Đọc Truyện Online</h1>
+        </header>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Trang Chủ</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#">Thể Loại</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Truyện Mới</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Truyện Hot</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" id="login-btn">Đăng Nhập</a></li>
+                    </ul>
+                    <form class="d-flex ms-3" id="search-form">
+                        <input class="form-control me-2" type="search" placeholder="Tìm truyện..." aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Banner -->
+        <div class="container mt-3">
+            <div class="banner bg-info text-center py-4">
+                <h2 class="text-white">Chào mừng bạn đến với thế giới truyện!</h2>
+            </div>
+        </div>
+
+        <!-- Danh sách truyện -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Danh Sách Truyện</h3>
+                    <div class="list-group" id="story-list">
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <h5 class="mb-1">Truyện 1: Hành Trình Kỳ Ảo</h5>
+                            <p class="mb-1">Một câu chuyện phiêu lưu hấp dẫn...</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <h5 class="mb-1">Truyện 2: Thiếu Niên Huyền Bí</h5>
+                            <p class="mb-1">Bí ẩn quanh cậu bé có năng lực đặc biệt...</p>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action">
+                            <h5 class="mb-1">Truyện 3: Đại Chiến Ma Giới</h5>
+                            <p class="mb-1">Cuộc chiến giữa loài người và ma giới bắt đầu...</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Sidebar: Thể loại -->
+                <div class="col-md-4">
+                    <h3>Thể Loại</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item">Tiên Hiệp</li>
+                        <li class="list-group-item">Kiếm Hiệp</li>
+                        <li class="list-group-item">Ngôn Tình</li>
+                        <li class="list-group-item">Trinh Thám</li>
+                        <li class="list-group-item">Kinh Dị</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Đăng Nhập -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Đăng Nhập</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="login-form">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Tên đăng nhập</label>
+                                <input type="text" class="form-control" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mật khẩu</label>
+                                <input type="password" class="form-control" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p>Chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container body-content">
+        @RenderBody()
+        <hr />
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center p-3 mt-5">
+            <p>&copy; 2024 Web Đọc Truyện. Mọi quyền được bảo lưu.</p>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

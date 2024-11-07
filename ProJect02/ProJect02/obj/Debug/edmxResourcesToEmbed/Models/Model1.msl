@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="projectModelStoreContainer" CdmEntityContainer="projectEntities">
+    <EntitySetMapping Name="BaoCao">
+      <EntityTypeMapping TypeName="projectModel.BaoCao">
+        <MappingFragment StoreEntitySet="BaoCao">
+          <ScalarProperty Name="MaBaoCao" ColumnName="MaBaoCao" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="LyDo" ColumnName="LyDo" />
+          <ScalarProperty Name="NgayBaoCao" ColumnName="NgayBaoCao" />
+          <ScalarProperty Name="TrangThaiXuLy" ColumnName="TrangThaiXuLy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BinhLuan">
+      <EntityTypeMapping TypeName="projectModel.BinhLuan">
+        <MappingFragment StoreEntitySet="BinhLuan">
+          <ScalarProperty Name="MaBinhLuan" ColumnName="MaBinhLuan" />
+          <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chuong">
+      <EntityTypeMapping TypeName="projectModel.Chuong">
+        <MappingFragment StoreEntitySet="Chuong">
+          <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="TenChuong" ColumnName="TenChuong" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhGia">
+      <EntityTypeMapping TypeName="projectModel.DanhGia">
+        <MappingFragment StoreEntitySet="DanhGia">
+          <ScalarProperty Name="MaDanhGia" ColumnName="MaDanhGia" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="NoiDungDanhGia" ColumnName="NoiDungDanhGia" />
+          <ScalarProperty Name="NgayDanhGia" ColumnName="NgayDanhGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiemDanh">
+      <EntityTypeMapping TypeName="projectModel.DiemDanh">
+        <MappingFragment StoreEntitySet="DiemDanh">
+          <ScalarProperty Name="MaDiemDanh" ColumnName="MaDiemDanh" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="NgayDiemDanh" ColumnName="NgayDiemDanh" />
+          <ScalarProperty Name="DiemThuong" ColumnName="DiemThuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LichSuDoc">
+      <EntityTypeMapping TypeName="projectModel.LichSuDoc">
+        <MappingFragment StoreEntitySet="LichSuDoc">
+          <ScalarProperty Name="MaLichSu" ColumnName="MaLichSu" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="MaChuongCuoi" ColumnName="MaChuongCuoi" />
+          <ScalarProperty Name="ThoiGianDoc" ColumnName="ThoiGianDoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NguoiDung">
+      <EntityTypeMapping TypeName="projectModel.NguoiDung">
+        <MappingFragment StoreEntitySet="NguoiDung">
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NgayDangKy" ColumnName="NgayDangKy" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quyen">
+      <EntityTypeMapping TypeName="projectModel.Quyen">
+        <MappingFragment StoreEntitySet="Quyen">
+          <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+          <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TheLoai">
+      <EntityTypeMapping TypeName="projectModel.TheLoai">
+        <MappingFragment StoreEntitySet="TheLoai">
+          <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+          <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongBao">
+      <EntityTypeMapping TypeName="projectModel.ThongBao">
+        <MappingFragment StoreEntitySet="ThongBao">
+          <ScalarProperty Name="MaThongBao" ColumnName="MaThongBao" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="NoiDungThongBao" ColumnName="NoiDungThongBao" />
+          <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+          <ScalarProperty Name="DaDoc" ColumnName="DaDoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Truyen">
+      <EntityTypeMapping TypeName="projectModel.Truyen">
+        <MappingFragment StoreEntitySet="Truyen">
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="TenTruyen" ColumnName="TenTruyen" />
+          <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+          <ScalarProperty Name="LuotXem" ColumnName="LuotXem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YenThich">
+      <EntityTypeMapping TypeName="projectModel.YenThich">
+        <MappingFragment StoreEntitySet="YenThich">
+          <ScalarProperty Name="MaYeuThich" ColumnName="MaYeuThich" />
+          <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+          <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+          <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

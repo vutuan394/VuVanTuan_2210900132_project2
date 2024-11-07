@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaoCao">
+    <Key>
+      <PropertyRef Name="MaBaoCao" />
+    </Key>
+    <Property Name="MaBaoCao" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="MaChuong" Type="int" />
+    <Property Name="MaTruyen" Type="int" />
+    <Property Name="LyDo" Type="nvarchar" MaxLength="255" />
+    <Property Name="NgayBaoCao" Type="datetime" />
+    <Property Name="TrangThaiXuLy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BinhLuan">
+    <Key>
+      <PropertyRef Name="MaBinhLuan" />
+    </Key>
+    <Property Name="MaBinhLuan" Type="int" Nullable="false" />
+    <Property Name="MaChuong" Type="int" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="NoiDungBinhLuan" Type="nvarchar(max)" />
+    <Property Name="NgayBinhLuan" Type="datetime" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Chuong">
+    <Key>
+      <PropertyRef Name="MaChuong" />
+    </Key>
+    <Property Name="MaChuong" Type="int" Nullable="false" />
+    <Property Name="MaTruyen" Type="int" />
+    <Property Name="TenChuong" Type="nvarchar" MaxLength="255" />
+    <Property Name="NoiDung" Type="nvarchar(max)" />
+    <Property Name="NgayCapNhat" Type="date" />
+    <Property Name="SoThuTu" Type="int" />
+  </EntityType>
+  <EntityType Name="DanhGia">
+    <Key>
+      <PropertyRef Name="MaDanhGia" />
+    </Key>
+    <Property Name="MaDanhGia" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="MaTruyen" Type="int" />
+    <Property Name="DiemDanhGia" Type="int" />
+    <Property Name="NoiDungDanhGia" Type="nvarchar(max)" />
+    <Property Name="NgayDanhGia" Type="date" />
+  </EntityType>
+  <EntityType Name="DiemDanh">
+    <Key>
+      <PropertyRef Name="MaDiemDanh" />
+    </Key>
+    <Property Name="MaDiemDanh" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="NgayDiemDanh" Type="date" />
+    <Property Name="DiemThuong" Type="int" />
+  </EntityType>
+  <EntityType Name="LichSuDoc">
+    <Key>
+      <PropertyRef Name="MaLichSu" />
+    </Key>
+    <Property Name="MaLichSu" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="MaTruyen" Type="int" />
+    <Property Name="MaChuongCuoi" Type="int" />
+    <Property Name="ThoiGianDoc" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="int" Nullable="false" />
+    <Property Name="TenDangNhap" Type="nvarchar" MaxLength="100" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="NgayDangKy" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'project.dbo.NguoiDung_Quyen' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NguoiDung_Quyen">
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaQuyen" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="int" Nullable="false" />
+    <Property Name="TenQuyen" Type="nvarchar" MaxLength="100" />
+    <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TheLoai">
+    <Key>
+      <PropertyRef Name="MaTheLoai" />
+    </Key>
+    <Property Name="MaTheLoai" Type="int" Nullable="false" />
+    <Property Name="TenTheLoai" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ThongBao">
+    <Key>
+      <PropertyRef Name="MaThongBao" />
+    </Key>
+    <Property Name="MaThongBao" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="NoiDungThongBao" Type="nvarchar" MaxLength="500" />
+    <Property Name="NgayGui" Type="datetime" />
+    <Property Name="DaDoc" Type="bit" />
+  </EntityType>
+  <EntityType Name="Truyen">
+    <Key>
+      <PropertyRef Name="MaTruyen" />
+    </Key>
+    <Property Name="MaTruyen" Type="int" Nullable="false" />
+    <Property Name="TenTruyen" Type="nvarchar" MaxLength="255" />
+    <Property Name="TacGia" Type="nvarchar" MaxLength="255" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+    <Property Name="NgayDang" Type="date" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+    <Property Name="LuotXem" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'project.dbo.Truyen_TheLoai' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Truyen_TheLoai">
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="MaTheLoai" Type="int" />
+        </EntityType>-->
+  <EntityType Name="YenThich">
+    <Key>
+      <PropertyRef Name="MaYeuThich" />
+    </Key>
+    <Property Name="MaYeuThich" Type="int" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="int" />
+    <Property Name="MaTruyen" Type="int" />
+    <Property Name="NgayThem" Type="date" />
+  </EntityType>
+  <EntityContainer Name="projectModelStoreContainer">
+    <EntitySet Name="BaoCao" EntityType="Self.BaoCao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BinhLuan" EntityType="Self.BinhLuan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Chuong" EntityType="Self.Chuong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiemDanh" EntityType="Self.DiemDanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LichSuDoc" EntityType="Self.LichSuDoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThongBao" EntityType="Self.ThongBao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Truyen" EntityType="Self.Truyen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YenThich" EntityType="Self.YenThich" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

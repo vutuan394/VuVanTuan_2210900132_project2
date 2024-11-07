@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaoCao">
+    <Key>
+      <PropertyRef Name="MaBaoCao" />
+    </Key>
+    <Property Name="MaBaoCao" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="MaChuong" Type="Int32" />
+    <Property Name="MaTruyen" Type="Int32" />
+    <Property Name="LyDo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBaoCao" Type="DateTime" Precision="3" />
+    <Property Name="TrangThaiXuLy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BinhLuan">
+    <Key>
+      <PropertyRef Name="MaBinhLuan" />
+    </Key>
+    <Property Name="MaBinhLuan" Type="Int32" Nullable="false" />
+    <Property Name="MaChuong" Type="Int32" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBinhLuan" Type="DateTime" Precision="3" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Chuong">
+    <Key>
+      <PropertyRef Name="MaChuong" />
+    </Key>
+    <Property Name="MaChuong" Type="Int32" Nullable="false" />
+    <Property Name="MaTruyen" Type="Int32" />
+    <Property Name="TenChuong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="SoThuTu" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DanhGia">
+    <Key>
+      <PropertyRef Name="MaDanhGia" />
+    </Key>
+    <Property Name="MaDanhGia" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="MaTruyen" Type="Int32" />
+    <Property Name="DiemDanhGia" Type="Int32" />
+    <Property Name="NoiDungDanhGia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDanhGia" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="DiemDanh">
+    <Key>
+      <PropertyRef Name="MaDiemDanh" />
+    </Key>
+    <Property Name="MaDiemDanh" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="NgayDiemDanh" Type="DateTime" Precision="0" />
+    <Property Name="DiemThuong" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LichSuDoc">
+    <Key>
+      <PropertyRef Name="MaLichSu" />
+    </Key>
+    <Property Name="MaLichSu" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="MaTruyen" Type="Int32" />
+    <Property Name="MaChuongCuoi" Type="Int32" />
+    <Property Name="ThoiGianDoc" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="MaNguoiDung" />
+    </Key>
+    <Property Name="MaNguoiDung" Type="Int32" Nullable="false" />
+    <Property Name="TenDangNhap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDangKy" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Quyen">
+    <Key>
+      <PropertyRef Name="MaQuyen" />
+    </Key>
+    <Property Name="MaQuyen" Type="Int32" Nullable="false" />
+    <Property Name="TenQuyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TheLoai">
+    <Key>
+      <PropertyRef Name="MaTheLoai" />
+    </Key>
+    <Property Name="MaTheLoai" Type="Int32" Nullable="false" />
+    <Property Name="TenTheLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ThongBao">
+    <Key>
+      <PropertyRef Name="MaThongBao" />
+    </Key>
+    <Property Name="MaThongBao" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="NoiDungThongBao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="NgayGui" Type="DateTime" Precision="3" />
+    <Property Name="DaDoc" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Truyen">
+    <Key>
+      <PropertyRef Name="MaTruyen" />
+    </Key>
+    <Property Name="MaTruyen" Type="Int32" Nullable="false" />
+    <Property Name="TenTruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TacGia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayDang" Type="DateTime" Precision="0" />
+    <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LuotXem" Type="Int32" />
+  </EntityType>
+  <EntityType Name="YenThich">
+    <Key>
+      <PropertyRef Name="MaYeuThich" />
+    </Key>
+    <Property Name="MaYeuThich" Type="Int32" Nullable="false" />
+    <Property Name="MaNguoiDung" Type="Int32" />
+    <Property Name="MaTruyen" Type="Int32" />
+    <Property Name="NgayThem" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="projectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaoCao" EntityType="Self.BaoCao" />
+    <EntitySet Name="BinhLuan" EntityType="Self.BinhLuan" />
+    <EntitySet Name="Chuong" EntityType="Self.Chuong" />
+    <EntitySet Name="DanhGia" EntityType="Self.DanhGia" />
+    <EntitySet Name="DiemDanh" EntityType="Self.DiemDanh" />
+    <EntitySet Name="LichSuDoc" EntityType="Self.LichSuDoc" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" />
+    <EntitySet Name="Quyen" EntityType="Self.Quyen" />
+    <EntitySet Name="TheLoai" EntityType="Self.TheLoai" />
+    <EntitySet Name="ThongBao" EntityType="Self.ThongBao" />
+    <EntitySet Name="Truyen" EntityType="Self.Truyen" />
+    <EntitySet Name="YenThich" EntityType="Self.YenThich" />
+  </EntityContainer>
+</Schema>

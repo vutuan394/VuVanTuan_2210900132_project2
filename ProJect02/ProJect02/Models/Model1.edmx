@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BaoCao">
+          <Key>
+            <PropertyRef Name="MaBaoCao" />
+          </Key>
+          <Property Name="MaBaoCao" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaChuong" Type="int" />
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="LyDo" Type="nvarchar" MaxLength="255" />
+          <Property Name="NgayBaoCao" Type="datetime" />
+          <Property Name="TrangThaiXuLy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BinhLuan">
+          <Key>
+            <PropertyRef Name="MaBinhLuan" />
+          </Key>
+          <Property Name="MaBinhLuan" Type="int" Nullable="false" />
+          <Property Name="MaChuong" Type="int" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="NoiDungBinhLuan" Type="nvarchar(max)" />
+          <Property Name="NgayBinhLuan" Type="datetime" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Chuong">
+          <Key>
+            <PropertyRef Name="MaChuong" />
+          </Key>
+          <Property Name="MaChuong" Type="int" Nullable="false" />
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="TenChuong" Type="nvarchar" MaxLength="255" />
+          <Property Name="NoiDung" Type="nvarchar(max)" />
+          <Property Name="NgayCapNhat" Type="date" />
+          <Property Name="SoThuTu" Type="int" />
+        </EntityType>
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="MaDanhGia" />
+          </Key>
+          <Property Name="MaDanhGia" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="DiemDanhGia" Type="int" />
+          <Property Name="NoiDungDanhGia" Type="nvarchar(max)" />
+          <Property Name="NgayDanhGia" Type="date" />
+        </EntityType>
+        <EntityType Name="DiemDanh">
+          <Key>
+            <PropertyRef Name="MaDiemDanh" />
+          </Key>
+          <Property Name="MaDiemDanh" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="NgayDiemDanh" Type="date" />
+          <Property Name="DiemThuong" Type="int" />
+        </EntityType>
+        <EntityType Name="LichSuDoc">
+          <Key>
+            <PropertyRef Name="MaLichSu" />
+          </Key>
+          <Property Name="MaLichSu" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="MaChuongCuoi" Type="int" />
+          <Property Name="ThoiGianDoc" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="int" Nullable="false" />
+          <Property Name="TenDangNhap" Type="nvarchar" MaxLength="100" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="NgayDangKy" Type="date" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'project.dbo.NguoiDung_Quyen' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="NguoiDung_Quyen">
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaQuyen" Type="int" />
+        </EntityType>-->
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="int" Nullable="false" />
+          <Property Name="TenQuyen" Type="nvarchar" MaxLength="100" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="MaTheLoai" />
+          </Key>
+          <Property Name="MaTheLoai" Type="int" Nullable="false" />
+          <Property Name="TenTheLoai" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ThongBao">
+          <Key>
+            <PropertyRef Name="MaThongBao" />
+          </Key>
+          <Property Name="MaThongBao" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="NoiDungThongBao" Type="nvarchar" MaxLength="500" />
+          <Property Name="NgayGui" Type="datetime" />
+          <Property Name="DaDoc" Type="bit" />
+        </EntityType>
+        <EntityType Name="Truyen">
+          <Key>
+            <PropertyRef Name="MaTruyen" />
+          </Key>
+          <Property Name="MaTruyen" Type="int" Nullable="false" />
+          <Property Name="TenTruyen" Type="nvarchar" MaxLength="255" />
+          <Property Name="TacGia" Type="nvarchar" MaxLength="255" />
+          <Property Name="MoTa" Type="nvarchar(max)" />
+          <Property Name="NgayDang" Type="date" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
+          <Property Name="LuotXem" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'project.dbo.Truyen_TheLoai' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Truyen_TheLoai">
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="MaTheLoai" Type="int" />
+        </EntityType>-->
+        <EntityType Name="YenThich">
+          <Key>
+            <PropertyRef Name="MaYeuThich" />
+          </Key>
+          <Property Name="MaYeuThich" Type="int" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="int" />
+          <Property Name="MaTruyen" Type="int" />
+          <Property Name="NgayThem" Type="date" />
+        </EntityType>
+        <EntityContainer Name="projectModelStoreContainer">
+          <EntitySet Name="BaoCao" EntityType="Self.BaoCao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BinhLuan" EntityType="Self.BinhLuan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Chuong" EntityType="Self.Chuong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiemDanh" EntityType="Self.DiemDanh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LichSuDoc" EntityType="Self.LichSuDoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Quyen" EntityType="Self.Quyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TheLoai" EntityType="Self.TheLoai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThongBao" EntityType="Self.ThongBao" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Truyen" EntityType="Self.Truyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YenThich" EntityType="Self.YenThich" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BaoCao">
+          <Key>
+            <PropertyRef Name="MaBaoCao" />
+          </Key>
+          <Property Name="MaBaoCao" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="MaChuong" Type="Int32" />
+          <Property Name="MaTruyen" Type="Int32" />
+          <Property Name="LyDo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NgayBaoCao" Type="DateTime" Precision="3" />
+          <Property Name="TrangThaiXuLy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BinhLuan">
+          <Key>
+            <PropertyRef Name="MaBinhLuan" />
+          </Key>
+          <Property Name="MaBinhLuan" Type="Int32" Nullable="false" />
+          <Property Name="MaChuong" Type="Int32" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayBinhLuan" Type="DateTime" Precision="3" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Chuong">
+          <Key>
+            <PropertyRef Name="MaChuong" />
+          </Key>
+          <Property Name="MaChuong" Type="Int32" Nullable="false" />
+          <Property Name="MaTruyen" Type="Int32" />
+          <Property Name="TenChuong" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+          <Property Name="SoThuTu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="MaDanhGia" />
+          </Key>
+          <Property Name="MaDanhGia" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="MaTruyen" Type="Int32" />
+          <Property Name="DiemDanhGia" Type="Int32" />
+          <Property Name="NoiDungDanhGia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDanhGia" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="DiemDanh">
+          <Key>
+            <PropertyRef Name="MaDiemDanh" />
+          </Key>
+          <Property Name="MaDiemDanh" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="NgayDiemDanh" Type="DateTime" Precision="0" />
+          <Property Name="DiemThuong" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LichSuDoc">
+          <Key>
+            <PropertyRef Name="MaLichSu" />
+          </Key>
+          <Property Name="MaLichSu" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="MaTruyen" Type="Int32" />
+          <Property Name="MaChuongCuoi" Type="Int32" />
+          <Property Name="ThoiGianDoc" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="MaNguoiDung" />
+          </Key>
+          <Property Name="MaNguoiDung" Type="Int32" Nullable="false" />
+          <Property Name="TenDangNhap" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDangKy" Type="DateTime" Precision="0" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Quyen">
+          <Key>
+            <PropertyRef Name="MaQuyen" />
+          </Key>
+          <Property Name="MaQuyen" Type="Int32" Nullable="false" />
+          <Property Name="TenQuyen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TheLoai">
+          <Key>
+            <PropertyRef Name="MaTheLoai" />
+          </Key>
+          <Property Name="MaTheLoai" Type="Int32" Nullable="false" />
+          <Property Name="TenTheLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ThongBao">
+          <Key>
+            <PropertyRef Name="MaThongBao" />
+          </Key>
+          <Property Name="MaThongBao" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="NoiDungThongBao" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NgayGui" Type="DateTime" Precision="3" />
+          <Property Name="DaDoc" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Truyen">
+          <Key>
+            <PropertyRef Name="MaTruyen" />
+          </Key>
+          <Property Name="MaTruyen" Type="Int32" Nullable="false" />
+          <Property Name="TenTruyen" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TacGia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NgayDang" Type="DateTime" Precision="0" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LuotXem" Type="Int32" />
+        </EntityType>
+        <EntityType Name="YenThich">
+          <Key>
+            <PropertyRef Name="MaYeuThich" />
+          </Key>
+          <Property Name="MaYeuThich" Type="Int32" Nullable="false" />
+          <Property Name="MaNguoiDung" Type="Int32" />
+          <Property Name="MaTruyen" Type="Int32" />
+          <Property Name="NgayThem" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BaoCao" EntityType="Self.BaoCao" />
+          <EntitySet Name="BinhLuan" EntityType="Self.BinhLuan" />
+          <EntitySet Name="Chuong" EntityType="Self.Chuong" />
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" />
+          <EntitySet Name="DiemDanh" EntityType="Self.DiemDanh" />
+          <EntitySet Name="LichSuDoc" EntityType="Self.LichSuDoc" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" />
+          <EntitySet Name="Quyen" EntityType="Self.Quyen" />
+          <EntitySet Name="TheLoai" EntityType="Self.TheLoai" />
+          <EntitySet Name="ThongBao" EntityType="Self.ThongBao" />
+          <EntitySet Name="Truyen" EntityType="Self.Truyen" />
+          <EntitySet Name="YenThich" EntityType="Self.YenThich" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="projectModelStoreContainer" CdmEntityContainer="projectEntities">
+          <EntitySetMapping Name="BaoCao">
+            <EntityTypeMapping TypeName="projectModel.BaoCao">
+              <MappingFragment StoreEntitySet="BaoCao">
+                <ScalarProperty Name="MaBaoCao" ColumnName="MaBaoCao" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="LyDo" ColumnName="LyDo" />
+                <ScalarProperty Name="NgayBaoCao" ColumnName="NgayBaoCao" />
+                <ScalarProperty Name="TrangThaiXuLy" ColumnName="TrangThaiXuLy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BinhLuan">
+            <EntityTypeMapping TypeName="projectModel.BinhLuan">
+              <MappingFragment StoreEntitySet="BinhLuan">
+                <ScalarProperty Name="MaBinhLuan" ColumnName="MaBinhLuan" />
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+                <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chuong">
+            <EntityTypeMapping TypeName="projectModel.Chuong">
+              <MappingFragment StoreEntitySet="Chuong">
+                <ScalarProperty Name="MaChuong" ColumnName="MaChuong" />
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="TenChuong" ColumnName="TenChuong" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhGia">
+            <EntityTypeMapping TypeName="projectModel.DanhGia">
+              <MappingFragment StoreEntitySet="DanhGia">
+                <ScalarProperty Name="MaDanhGia" ColumnName="MaDanhGia" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+                <ScalarProperty Name="NoiDungDanhGia" ColumnName="NoiDungDanhGia" />
+                <ScalarProperty Name="NgayDanhGia" ColumnName="NgayDanhGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiemDanh">
+            <EntityTypeMapping TypeName="projectModel.DiemDanh">
+              <MappingFragment StoreEntitySet="DiemDanh">
+                <ScalarProperty Name="MaDiemDanh" ColumnName="MaDiemDanh" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="NgayDiemDanh" ColumnName="NgayDiemDanh" />
+                <ScalarProperty Name="DiemThuong" ColumnName="DiemThuong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LichSuDoc">
+            <EntityTypeMapping TypeName="projectModel.LichSuDoc">
+              <MappingFragment StoreEntitySet="LichSuDoc">
+                <ScalarProperty Name="MaLichSu" ColumnName="MaLichSu" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="MaChuongCuoi" ColumnName="MaChuongCuoi" />
+                <ScalarProperty Name="ThoiGianDoc" ColumnName="ThoiGianDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NguoiDung">
+            <EntityTypeMapping TypeName="projectModel.NguoiDung">
+              <MappingFragment StoreEntitySet="NguoiDung">
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="TenDangNhap" ColumnName="TenDangNhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NgayDangKy" ColumnName="NgayDangKy" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Quyen">
+            <EntityTypeMapping TypeName="projectModel.Quyen">
+              <MappingFragment StoreEntitySet="Quyen">
+                <ScalarProperty Name="MaQuyen" ColumnName="MaQuyen" />
+                <ScalarProperty Name="TenQuyen" ColumnName="TenQuyen" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TheLoai">
+            <EntityTypeMapping TypeName="projectModel.TheLoai">
+              <MappingFragment StoreEntitySet="TheLoai">
+                <ScalarProperty Name="MaTheLoai" ColumnName="MaTheLoai" />
+                <ScalarProperty Name="TenTheLoai" ColumnName="TenTheLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThongBao">
+            <EntityTypeMapping TypeName="projectModel.ThongBao">
+              <MappingFragment StoreEntitySet="ThongBao">
+                <ScalarProperty Name="MaThongBao" ColumnName="MaThongBao" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="NoiDungThongBao" ColumnName="NoiDungThongBao" />
+                <ScalarProperty Name="NgayGui" ColumnName="NgayGui" />
+                <ScalarProperty Name="DaDoc" ColumnName="DaDoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Truyen">
+            <EntityTypeMapping TypeName="projectModel.Truyen">
+              <MappingFragment StoreEntitySet="Truyen">
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="TenTruyen" ColumnName="TenTruyen" />
+                <ScalarProperty Name="TacGia" ColumnName="TacGia" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="LuotXem" ColumnName="LuotXem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YenThich">
+            <EntityTypeMapping TypeName="projectModel.YenThich">
+              <MappingFragment StoreEntitySet="YenThich">
+                <ScalarProperty Name="MaYeuThich" ColumnName="MaYeuThich" />
+                <ScalarProperty Name="MaNguoiDung" ColumnName="MaNguoiDung" />
+                <ScalarProperty Name="MaTruyen" ColumnName="MaTruyen" />
+                <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
